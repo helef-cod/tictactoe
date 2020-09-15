@@ -57,102 +57,114 @@ class Board extends Component {
       this.setState({ play: false });
     }
   }
+  clearTable = () => {
+    if (this.state.play) {
+      this.setState({
+        cira1: "",
+        cira2: "",
+        cira3: "",
+        cirb1: "",
+        cirb2: "",
+        cirb3: "",
+        circ1: "",
+        circ2: "",
+        circ3: "",
+      });
+    } else if (!this.state.play) {
+      window.location.reload();
+    }
+  };
 
   changeColora1 = () => {
-    if (!this.state.idx) {
+    if (!this.state.idx && this.state.play && this.state.cira1 === "") {
       this.setState({ cira1: "cirw" });
-    } else if (this.state.idx) {
+      this.setState({ idx: !this.state.idx });
+    } else if (this.state.idx && this.state.play && this.state.cira1 === "") {
       this.setState({ cira1: "cirb" });
+      this.setState({ idx: !this.state.idx });
     }
-    this.setState({ idx: !this.state.idx });
   };
   changeColorb1 = () => {
-    if (!this.state.idx) {
+    if (!this.state.idx && this.state.play && this.state.cirb1 === "") {
       this.setState({ cirb1: "cirw" });
-    } else if (this.state.idx) {
+      this.setState({ idx: !this.state.idx });
+    } else if (this.state.idx && this.state.play && this.state.cirb1 === "") {
       this.setState({ cirb1: "cirb" });
+      this.setState({ idx: !this.state.idx });
     }
-    this.setState({ idx: !this.state.idx });
   };
   changeColorc1 = () => {
-    if (!this.state.idx) {
+    if (!this.state.idx && this.state.play && this.state.circ1 === "") {
       this.setState({ circ1: "cirw" });
-    } else if (this.state.idx) {
+      this.setState({ idx: !this.state.idx });
+    } else if (this.state.idx && this.state.play && this.state.circ1 === "") {
       this.setState({ circ1: "cirb" });
+      this.setState({ idx: !this.state.idx });
     }
-    this.setState({ idx: !this.state.idx });
   };
   changeColora2 = () => {
-    if (!this.state.idx) {
+    if (!this.state.idx && this.state.play && this.state.cira2 === "") {
       this.setState({ cira2: "cirw" });
-    } else if (this.state.idx) {
+      this.setState({ idx: !this.state.idx });
+    } else if (this.state.idx && this.state.play && this.state.cira2 === "") {
       this.setState({ cira2: "cirb" });
+      this.setState({ idx: !this.state.idx });
     }
-    this.setState({ idx: !this.state.idx });
   };
   changeColorb2 = () => {
-    if (!this.state.idx) {
+    if (!this.state.idx && this.state.play && this.state.cirb2 === "") {
       this.setState({ cirb2: "cirw" });
-    } else if (this.state.idx) {
+      this.setState({ idx: !this.state.idx });
+    } else if (this.state.idx && this.state.play && this.state.cirb2 === "") {
       this.setState({ cirb2: "cirb" });
+      this.setState({ idx: !this.state.idx });
     }
-    this.setState({ idx: !this.state.idx });
   };
   changeColorc2 = () => {
-    if (!this.state.idx) {
+    if (!this.state.idx && this.state.play && this.state.circ2 === "") {
       this.setState({ circ2: "cirw" });
-    } else if (this.state.idx) {
+      this.setState({ idx: !this.state.idx });
+    } else if (this.state.idx && this.state.play && this.state.circ2 === "") {
       this.setState({ circ2: "cirb" });
+      this.setState({ idx: !this.state.idx });
     }
-    this.setState({ idx: !this.state.idx });
   };
   changeColora3 = () => {
-    if (!this.state.idx) {
+    if (!this.state.idx && this.state.play && this.state.cira3 === "") {
       this.setState({ cira3: "cirw" });
-    } else if (this.state.idx) {
+      this.setState({ idx: !this.state.idx });
+    } else if (this.state.idx && this.state.play && this.state.cira3 === "") {
       this.setState({ cira3: "cirb" });
+      this.setState({ idx: !this.state.idx });
     }
-    this.setState({ idx: !this.state.idx });
   };
   changeColorb3 = () => {
-    if (!this.state.idx) {
+    if (!this.state.idx && this.state.play && this.state.cirb3 === "") {
       this.setState({ cirb3: "cirw" });
-    } else if (this.state.idx) {
+      this.setState({ idx: !this.state.idx });
+    } else if (this.state.idx && this.state.play && this.state.cirb3 === "") {
       this.setState({ cirb3: "cirb" });
+      this.setState({ idx: !this.state.idx });
     }
-    this.setState({ idx: !this.state.idx });
   };
   changeColorc3 = () => {
-    if (!this.state.idx) {
+    if (!this.state.idx && this.state.play && this.state.circ3 === "") {
       this.setState({ circ3: "cirw" });
-    } else if (this.state.idx) {
+      this.setState({ idx: !this.state.idx });
+    } else if (this.state.idx && this.state.play && this.state.circ3 === "") {
       this.setState({ circ3: "cirb" });
+      this.setState({ idx: !this.state.idx });
     }
-    this.setState({ idx: !this.state.idx });
-  };
-  clearTable = () => {
-    this.setState({
-      cira1: "",
-      cira2: "",
-      cira3: "",
-      cirb1: "",
-      cirb2: "",
-      cirb3: "",
-      circ1: "",
-      circ2: "",
-      circ3: "",
-      play: true,
-    });
   };
 
   render() {
+    const btnMessage = this.state.play ? "Clear Board" : "Play Again";
     return (
       <div>
         <div className={this.state.idx ? "cirb" : "cirw"}></div>
         <br></br>
         <div id="board">
           <div id="row1">
-            <h4>1</h4>
             <div className="odd" id="a1" onClick={this.changeColora1}>
               <div id={this.state.cira1}></div>
             </div>
@@ -164,7 +176,6 @@ class Board extends Component {
             </div>
           </div>
           <div id="row2">
-            <h4>2</h4>
             <div className="even" id="a2" onClick={this.changeColora2}>
               <div id={this.state.cira2}></div>
             </div>
@@ -176,7 +187,6 @@ class Board extends Component {
             </div>
           </div>
           <div id="row3">
-            <h4>3</h4>
             <div className="odd" id="a3" onClick={this.changeColora3}>
               <div id={this.state.cira3}></div>
             </div>
@@ -187,15 +197,10 @@ class Board extends Component {
               <div id={this.state.circ3}></div>
             </div>
           </div>
-          <div id="coordsA">
-            <div>a</div>
-            <div>b</div>
-            <div>c</div>
-          </div>
+
           <br />
-          <button onClick={this.clearTable}>Clear Board</button>
+          <button onClick={this.clearTable}>{btnMessage}</button>
           <Statu
-            checkStatus={this.checkStatus}
             a1={this.state.cira1}
             a2={this.state.cira2}
             a3={this.state.cira3}
