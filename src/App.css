@@ -2,7 +2,7 @@ body {
   background-color: rgb(107, 207, 129);
 }
 h3 {
-  color: rgb(238, 213, 217);
+  color: rgb(37, 37, 35);
 }
 
 #row1,
@@ -23,11 +23,13 @@ h3 {
   background-color: burlywood;
   width: 80px;
   height: 80px;
+  cursor: pointer;
 }
 .even {
   background-color: rgb(88, 71, 48);
   width: 80px;
   height: 80px;
+  cursor: pointer;
 }
 
 #cirb {
@@ -53,7 +55,11 @@ h3 {
   color: white;
   margin: auto;
   border: 1px solid grey;
-  border-radius: 50%;
+  border-radius: 10%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .cirw {
   width: 90px;
@@ -62,7 +68,11 @@ h3 {
   color: black;
   margin: auto;
   border: 1px solid grey;
-  border-radius: 50%;
+  border-radius: 10%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h2 {
@@ -72,6 +82,7 @@ button {
   background-color: rgb(10, 100, 10);
   color: white;
   border-color: grey;
+  cursor: pointer;
 }
 #board {
   text-align: center;

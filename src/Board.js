@@ -161,7 +161,7 @@ class Board extends Component {
     const btnMessage = this.state.play ? "Clear Board" : "Play Again";
     return (
       <div>
-        <div className={this.state.idx ? "cirb" : "cirw"}></div>
+        <div className={this.state.idx ? "cirb" : "cirw"}>Sıra</div>
         <br></br>
         <div id="board">
           <div id="row1">
